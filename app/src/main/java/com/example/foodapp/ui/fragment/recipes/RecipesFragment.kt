@@ -10,7 +10,9 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.foodapp.R
 import com.example.foodapp.viewmodels.MainViewModel
 import com.example.foodapp.adapter.RecipesAdapter
 import com.example.foodapp.databinding.FragmentRecipesBinding
@@ -44,6 +46,9 @@ class RecipesFragment : Fragment() {
         binding.mainViewNodel = mainViewModel
         setupRecyclerview()
         readDatabase()
+        binding.recipesFab.setOnClickListener {
+            findNavController().navigate(R.id.action_recipesFragment_to_recipesBottomSheet)
+        }
         return binding.root
     }
 
@@ -61,7 +66,7 @@ class RecipesFragment : Fragment() {
         }
     }
 
-   private fun requestApiData() {
+    private fun requestApiData() {
         Log.d("RecipesFragment", "requestApiData called")
         mainViewModel.getRecipes(recipesViewModel.applyQueries())
         mainViewModel.recipesResponce.observe(viewLifecycleOwner, Observer {
@@ -111,7 +116,7 @@ class RecipesFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        _binding=null
+        _binding = null
     }
 }
 //https://api.spoonacular.com/recipes/complexSearch?number=1&apiKey=3c826e7f1fa24626b3236b841a286ff2&type=finger food&diet=vegan&addRecipeInformation&fillIngredients=true
