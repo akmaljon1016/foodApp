@@ -1,4 +1,4 @@
-package com.example.foodapp
+package com.example.foodapp.ui.fragment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,8 +7,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.foodapp.R
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
