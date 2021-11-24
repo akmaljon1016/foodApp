@@ -11,4 +11,16 @@
     <color name="yellow">#FFEB3B</color>
     <color name="green">#4CAF50</color>
     <color name="grey">#DAD3D3</color>
+    <color name="darkGray">#4B4B4B</color>
+    <color name="darker">#151B20</color>
+    //Custom Chip Style
+    <color name="checkedChipBackgroundColor">#206200EA</color>
+    <color name="ChipBackgroundColor">@color/grey</color>
+
+    <color name="checkedChipTextColor">@color/purple_500</color>
+    <color name="ChipTextColor">@color/darkGray</color>
+    <color name="actionBarBackgroundColor">@color/purple_700</color>
+    <color name="strokeColor">@color/darkGray</color>
+    <color name="cardBackgroundColor">@color/white</color>
+    <color name="titleColor">@color/darker</color>
 </resources>

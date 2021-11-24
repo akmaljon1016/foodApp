@@ -12,15 +12,19 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/recipesRowLayout"
+        onRecipeClickListener="@{result}"
         android:layout_width="match_parent"
+        android:focusable="true"
+        android:clickable="true"
+        android:foreground="@drawable/custom_ripple"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
-        android:background="@color/white">
+        android:layout_marginBottom="4dp">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/row_cardview"
             android:layout_width="0dp"
+            app:strokeColor="@color/grey"
             android:layout_height="wrap_content"
             app:cardCornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -42,6 +46,7 @@
                     android:layout_height="0dp"
                     android:contentDescription="@string/food"
                     android:scaleType="centerCrop"
+                    android:background="@drawable/ic_no_image_placeholder"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -67,12 +72,12 @@
 
                 <TextView
                     android:id="@+id/description_textView"
+                    parseHtml="@{result.summary}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
                     android:ellipsize="end"
                     android:maxLines="3"
-                    android:text="@{result.summary}"
                     app:layout_constraintEnd_toEndOf="@+id/textView2"
                     app:layout_constraintStart_toStartOf="@+id/textView2"
                     app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -82,16 +87,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/textView3"
+                    app:layout_constraintEnd_toEndOf="@+id/heart_textview"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/textView3"
+                    app:layout_constraintStart_toStartOf="@+id/heart_textview"
                     app:layout_constraintTop_toBottomOf="@+id/description_textView"
                     app:layout_constraintVertical_bias="0.314"
                     app:srcCompat="@drawable/ic_heart"
                     app:tint="@color/red" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/heart_textview"
                     setNumberOfLikes="@{result.aggregateLikes}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

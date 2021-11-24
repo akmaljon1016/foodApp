@@ -47,6 +47,8 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
         val diffUtilResult=DiffUtil.calculateDiff(recipesDiffUtil)
         recipes=newData.results
         diffUtilResult.dispatchUpdatesTo(this)
-
+    }
+    fun clearList(){
+        recipes= emptyList()
     }
 }

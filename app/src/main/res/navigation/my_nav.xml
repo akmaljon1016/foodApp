@@ -8,17 +8,30 @@
     <fragment
         android:id="@+id/recipesFragment"
         android:name="com.example.foodapp.ui.fragment.recipes.RecipesFragment"
-        android:label="fragment_recipes"
+        android:label="Recipes"
         tools:layout="@layout/fragment_recipes" >
         <action
             android:id="@+id/action_recipesFragment_to_recipesBottomSheet"
-            app:destination="@id/recipesBottomSheet" />
+            app:destination="@id/recipesBottomSheet"
+            app:popUpTo="@id/recipesFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="backFromBottomSheet"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <action
+            android:id="@+id/action_recipesFragment_to_deatailsActivity"
+            app:destination="@id/deatailsActivity" />
     </fragment>
     <fragment
         android:id="@+id/favouriteRecipesFragment"
         android:name="com.example.foodapp.ui.fragment.favorites.FavouriteRecipesFragment"
         android:label="fragment_favourite_recipes"
-        tools:layout="@layout/fragment_favourite_recipes" />
+        tools:layout="@layout/fragment_favourite_recipes" >
+        <action
+            android:id="@+id/action_favouriteRecipesFragment_to_deatailsActivity"
+            app:destination="@id/deatailsActivity" />
+    </fragment>
     <fragment
         android:id="@+id/foodJokeFragment"
         android:name="com.example.foodapp.ui.fragment.foodjoke.FoodJokeFragment"
@@ -33,4 +46,13 @@
             android:id="@+id/action_recipesBottomSheet_to_recipesFragment"
             app:destination="@id/recipesFragment" />
     </dialog>
+    <activity
+        android:id="@+id/deatailsActivity"
+        android:name="com.example.foodapp.ui.fragment.DetailsActivity"
+        android:label="Details"
+        tools:layout="@layout/activity_deatails" >
+        <argument
+            android:name="result"
+            app:argType="com.example.foodapp.model.Result" />
+    </activity>
 </navigation>

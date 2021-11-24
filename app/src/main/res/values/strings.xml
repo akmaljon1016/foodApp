@@ -33,4 +33,13 @@
     <string name="primal">Primal</string>
     <string name="whole30">Whole30</string>
     <string name="apply">Apply</string>
+    <string name="search">Search</string>
+    <string name="_100">100</string>
+    <string name="vegeterian">Vegeterian</string>
+    <string name="dairy_free">Dairy Free</string>
+    <string name="healthy">Healthy</string>
+    <string name="cheap">Cheap</string>
+    <string name="save_to_favourites">Save to Favourites</string>
+    <string name="no_data_recipes">no data Recipes</string>
+
 </resources>
