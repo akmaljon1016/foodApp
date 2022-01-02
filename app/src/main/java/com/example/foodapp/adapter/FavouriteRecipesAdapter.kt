@@ -11,13 +11,18 @@ import com.example.foodapp.data.database.entities.FavouritesEntity
 import com.example.foodapp.databinding.FavouriteRecipesRowLayoutBinding
 import com.example.foodapp.ui.fragment.favorites.FavouriteRecipesFragmentDirections
 import com.example.foodapp.util.RecipesDiffUtil
+import com.example.foodapp.viewmodels.MainViewModel
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.favourite_recipes_row_layout.view.*
 
 class FavouriteRecipesAdapter(
-    private val requireActivity: FragmentActivity
+    private val requireActivity: FragmentActivity,
+    private val mainViewModel: MainViewModel
 ) : RecyclerView.Adapter<FavouriteRecipesAdapter.MyViewHolder>(), ActionMode.Callback {
 
     private var multiSelection = false
+    lateinit var mActionMode: ActionMode
+    private lateinit var rootView: View
 
     private var selectedRecipes = arrayListOf<FavouritesEntity>()
     private var myViewHolders = arrayListOf<MyViewHolder>()
@@ -46,6 +51,7 @@ class FavouriteRecipesAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         myViewHolders.add(holder)
+        rootView=holder.itemView.rootView
         val currentRecipe = favouriteRecipes[position]
         holder.bind(currentRecipe)
         /**
@@ -54,8 +60,7 @@ class FavouriteRecipesAdapter(
         holder.itemView.setOnClickListener {
             if (multiSelection) {
                 applySelection(holder, currentRecipe)
-            }
-            else{
+            } else {
                 val action =
                     FavouriteRecipesFragmentDirections.actionFavouriteRecipesFragmentToDeatailsActivity(
                         currentRecipe.result
@@ -84,9 +89,11 @@ class FavouriteRecipesAdapter(
         if (selectedRecipes.contains(currentRecipe)) {
             selectedRecipes.remove(currentRecipe)
             changeRecipeStyle(holder, R.color.cardBackgroundColor, R.color.strokeColor)
+            applyActionModeTitle()
         } else {
             selectedRecipes.add(currentRecipe)
             changeRecipeStyle(holder, R.color.cardBackgroundLightColor, R.color.purple_700)
+            applyActionModeTitle()
         }
     }
 
@@ -101,10 +108,25 @@ class FavouriteRecipesAdapter(
             ContextCompat.getColor(requireActivity, strokeColor)
     }
 
+    private fun applyActionModeTitle() {
+        when (selectedRecipes.size) {
+            0 -> {
+                mActionMode.finish()
+            }
+            1 -> {
+                mActionMode.title = "${selectedRecipes.size} item selected"
+            }
+            else -> {
+                mActionMode.title = "${selectedRecipes.size} items selected"
+            }
+        }
+    }
+
     override fun getItemCount(): Int = favouriteRecipes.size
 
     override fun onCreateActionMode(actionMode: ActionMode?, menu: Menu?): Boolean {
         actionMode?.menuInflater?.inflate(R.menu.favourites_contextual_menu, menu)
+        mActionMode = actionMode!!
         applyStatusBarColor(R.color.contextualStatusBarColor)
         return true
     }
@@ -114,6 +136,15 @@ class FavouriteRecipesAdapter(
     }
 
     override fun onActionItemClicked(actionMode: ActionMode?, menu: MenuItem?): Boolean {
+        if (menu?.itemId == R.id.delete_favourite_recipe_menu) {
+            selectedRecipes.forEach {
+                mainViewModel.deleteFavouriteRecipe(it)
+            }
+            showSnackBar("${selectedRecipes.size} Recipes removed.")
+            multiSelection=false
+            selectedRecipes.clear()
+            mActionMode.finish()
+        }
         return true
     }
 
@@ -135,6 +166,13 @@ class FavouriteRecipesAdapter(
         val diffUtilResult = DiffUtil.calculateDiff(FavouriteRecipesDiffUtill)
         favouriteRecipes = newFavouriteRecipes
         diffUtilResult.dispatchUpdatesTo(this)
-
+    }
+    private fun showSnackBar(message:String){
+        Snackbar.make(rootView,message,Snackbar.LENGTH_SHORT).setAction("Okay"){}.show()
+    }
+    fun clearContextualActionMode(){
+        if (this::mActionMode.isInitialized){
+            mActionMode.finish()
+        }
     }
 }

@@ -26,8 +26,8 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
 
     lateinit var recipesViewModel: RecipesViewModel
     private var mealTypeChip = DEFAULT_MEAL_TYPE
-    private var mealTypeChipId = 0
     private var dietTypeChip = DEFAULT_DIET_TYPE
+    private var mealTypeChipId = 0
     private var dietTypeChipId = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {

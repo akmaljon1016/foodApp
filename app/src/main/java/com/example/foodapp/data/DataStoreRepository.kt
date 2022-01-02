@@ -73,6 +73,7 @@ class DataStoreRepository @Inject constructor(@ApplicationContext private val co
                 selectedDietTypeId
             )
         }
+
     val readBackONline: Flow<Boolean> = dataStore.data
         .catch { exception ->
             if (exception is IOException) {

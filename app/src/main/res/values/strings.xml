@@ -41,5 +41,6 @@
     <string name="cheap">Cheap</string>
     <string name="save_to_favourites">Save to Favourites</string>
     <string name="no_data_recipes">no data Recipes</string>
+    <string name="share">Share</string>
 
 </resources>

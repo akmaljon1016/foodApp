@@ -3,12 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/FoodApp/app/src/main/res/layout/activity_main.xml" value="0.98" />
+        <entry key="..\:/FoodApp/app/src/main/res/drawable-v21/custom_ripple.xml" value="0.14536082474226805" />
+        <entry key="..\:/FoodApp/app/src/main/res/drawable/gradient_overlay.xml" value="0.146875" />
+        <entry key="..\:/FoodApp/app/src/main/res/drawable/ic_checkmark.xml" value="0.146875" />
+        <entry key="..\:/FoodApp/app/src/main/res/drawable/ic_clock.xml" value="0.146875" />
+        <entry key="..\:/FoodApp/app/src/main/res/drawable/ic_menu_book.xml" value="0.146875" />
+        <entry key="..\:/FoodApp/app/src/main/res/drawable/ic_no_image_placeholder.xml" value="0.146875" />
+        <entry key="..\:/FoodApp/app/src/main/res/drawable/ic_star.xml" value="0.146875" />
+        <entry key="..\:/FoodApp/app/src/main/res/layout/activity_deatails.xml" value="0.1361111111111111" />
+        <entry key="..\:/FoodApp/app/src/main/res/layout/activity_main.xml" value="0.1361111111111111" />
         <entry key="..\:/FoodApp/app/src/main/res/layout/favourite_recipes_row_layout.xml" value="0.98" />
-        <entry key="..\:/FoodApp/app/src/main/res/layout/fragment_favourite_recipes.xml" value="0.98" />
+        <entry key="..\:/FoodApp/app/src/main/res/layout/fragment_favourite_recipes.xml" value="0.25" />
+        <entry key="..\:/FoodApp/app/src/main/res/layout/fragment_food_joke.xml" value="0.17657657657657658" />
         <entry key="..\:/FoodApp/app/src/main/res/layout/fragment_recipes.xml" value="0.98" />
-        <entry key="..\:/FoodApp/app/src/main/res/layout/recipes_row_layout.xml" value="0.98" />
+        <entry key="..\:/FoodApp/app/src/main/res/layout/recipes_bottom_sheet.xml" value="0.1361111111111111" />
+        <entry key="..\:/FoodApp/app/src/main/res/layout/recipes_row_layout.xml" value="0.1347517730496454" />
+        <entry key="..\:/FoodApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.13470790378006872" />
+        <entry key="..\:/FoodApp/app/src/main/res/menu/favourite_recipes_menu.xml" value="0.98" />
         <entry key="..\:/FoodApp/app/src/main/res/menu/favourites_contextual_menu.xml" value="0.98" />
+        <entry key="..\:/FoodApp/app/src/main/res/menu/food_joke_menu.xml" value="0.12894736842105264" />
+        <entry key="..\:/FoodApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.146875" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/FoodApp/app/src/main/res/drawable-v21/custom_ripple.xml" value="1.0575" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/FoodApp/app/src/main/res/drawable/gradient_overlay.xml" value="1.0575" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/FoodApp/app/src/main/res/drawable/ic_checkmark.xml" value="1.0575" />
